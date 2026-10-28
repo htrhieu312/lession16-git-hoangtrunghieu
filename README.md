@@ -20,7 +20,8 @@ Pipeline ETL dữ liệu Candy Crush Saga và kết quả xổ số miền Bắc
 ├── requirements-dev.txt    # ruff, pytest, chỉ cài trên máy dev
 ├── pyproject.toml          # cấu hình ruff và pytest
 ├── .env.example            # mẫu biến môi trường, copy thành .env rồi điền
-└── secrets/                # chỗ để key service account, không commit
+├── secrets/                # chỗ để key service account, không commit└──
+└── calculator.py           # module tính tổng
 ```
 
 ## Các DAG
@@ -36,6 +37,20 @@ Tất cả chạy lúc 09:15 UTC hằng ngày, `catchup=False`, dùng chung `DEF
 | `5_etl_case_1_20_events` | Mỗi event một task (dynamic task mapping) |
 | `6_etl_flat_event_candycrushsaga_operator` | Dùng `BigQueryInsertJobOperator` thay PythonOperator |
 | `7_etl_data_xsmb` | Lấy kết quả xổ số từ API, ghi vào BigQuery, cần `XSMB_API_KEY` |
+
+## Module calculator
+
+File: `calculator.py`
+
+| Function | Input | Output |
+|---|---|---|
+| `add(a, b)` | hai số `a`, `b` (int hoặc float) | tổng `a + b` |
+
+Ví dụ: `add(2, 3)` trả về `5`.
+
+Chạy thử nhanh:
+
+    python calculator.py
 
 ## Chạy trên máy
 
