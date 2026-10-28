@@ -1,6 +1,6 @@
 def add(a: float, b: float) -> float:
     """Cộng hai số. Input: a, b (int/float). Output: tổng a + b."""
-    return a - b # lỗi cố ý: README nói là cộng, nhưng code đang trừ
+    return a + b
 
 
 if __name__ == "__main__":
